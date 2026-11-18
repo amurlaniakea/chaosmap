@@ -41,3 +41,4 @@ canvas { display: block; width: 100%; background: var(--panel); border: 1px soli
 .dot.a { background: var(--a); } .dot.b { background: var(--b); }
 .note { color: var(--muted); font-size: .9rem; }
 footer { max-width: 760px; margin: 1rem auto 2rem; padding: 0 1rem; color: var(--muted); font-size: .8rem; }
+footer a { color: var(--accent); }
