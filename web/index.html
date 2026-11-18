@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
+<!-- Copyright (C) 2026 Pedro Sordo Martínez <amurlaniakea@gmail.com> -->
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>chaosmap · péndulo doble: sensibilidad a las condiciones iniciales</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <button id="theme" type="button" aria-label="Cambiar entre modo oscuro y claro">☀ Claro</button>
+    <h1>chaosmap · péndulo doble</h1>
+  </header>
+  <main>
+    <p class="note">
+      Dos péndulos dobles idénticos, salvo por una diferencia diminuta en el ángulo inicial θ1.
+      Al principio son indistinguibles; después la diferencia crece de forma aproximadamente
+      exponencial (el exponente de Lyapunov) hasta que las trayectorias dejan de parecerse.
+    </p>
+    <canvas id="scene" aria-label="Dos péndulos dobles superpuestos, azul y naranja"></canvas>
+    <div class="legend" aria-hidden="true">
+      <span><i class="dot a"></i>Péndulo A</span>
+      <span><i class="dot b"></i>Péndulo B (θ1 + δ)</span>
+    </div>
+    <div class="controls">
+      <button id="play" type="button">Pausa</button>
+      <button id="reset" type="button">Reiniciar</button>
+      <label>Condición inicial
+        <select id="preset">
+          <option value="chaotic">Caótica (θ1=2,0; θ2=2,5)</option>
+          <option value="regular">Regular (θ1=0,5; θ2=0,6)</option>
+        </select>
+      </label>
+      <label>Separación inicial δ
+        <select id="delta">
+          <option value="1e-3">10⁻³ rad</option>
+          <option value="1e-6" selected>10⁻⁶ rad</option>
+          <option value="1e-9">10⁻⁹ rad</option>
+          <option value="1e-12">10⁻¹² rad</option>
+        </select>
+      </label>
+      <label>Velocidad
+        <select id="speed">
+          <option value="0.5">0,5×</option>
+          <option value="1" selected>1×</option>
+          <option value="2">2×</option>
+          <option value="4">4×</option>
+        </select>
+      </label>
+    </div>
+    <dl class="readouts">
+      <div><dt>Tiempo</dt><dd id="r-t">0,0 s</dd></div>
+      <div><dt>Separación (rad)</dt><dd id="r-sep">—</dd></div>
+      <div><dt>Amplificación</dt><dd id="r-amp">×1</dd></div>
+      <div><dt>Estado</dt><dd id="r-status">—</dd></div>
+    </dl>
+    <canvas id="plot" aria-label="Separación entre los péndulos frente al tiempo, en escala logarítmica"></canvas>
+    <p class="note">
+      La gráfica usa escala logarítmica: una recta creciente indica crecimiento exponencial; el
+      techo es la saturación (los péndulos ya están en puntos sin relación). Con ángulos pequeños
+      el movimiento es regular y la separación no crece.
+    </p>
+  </main>
+  <footer>
+    © 2026 Pedro Sordo Martínez · AGPL-3.0-or-later. Esta demo integra en el navegador (RK4,
+    JavaScript, paso 0,001 s); los hashes oficiales del repositorio cubren solo la salida de Python.
+  </footer>
+  <script src="pendulum.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
