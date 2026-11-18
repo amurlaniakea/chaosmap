@@ -1,0 +1,43 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
+/* Copyright (C) 2026 Pedro Sordo Martínez <amurlaniakea@gmail.com> */
+:root[data-theme="dark"] {
+  --bg: #0f1218; --panel: #171b24; --fg: #e6e9ef; --muted: #8b93a3; --grid: #2a3040;
+  --a: #5aa9ff; --b: #ff9a3c; --accent: #5aa9ff; color-scheme: dark;
+}
+:root[data-theme="light"] {
+  --bg: #f5f6f8; --panel: #ffffff; --fg: #1b1f27; --muted: #5d6573; --grid: #d9dde5;
+  --a: #1f6fd1; --b: #d9650a; --accent: #1f6fd1; color-scheme: light;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+header {
+  display: flex; align-items: center; gap: 1rem; padding: .75rem 1rem;
+  border-bottom: 1px solid var(--grid);
+}
+header h1 { font-size: 1.1rem; margin: 0; font-weight: 600; }
+main { max-width: 760px; margin: 0 auto; padding: 1rem; }
+button, select {
+  font: inherit; color: var(--fg); background: var(--panel);
+  border: 1px solid var(--grid); border-radius: 6px; padding: .35rem .7rem; cursor: pointer;
+}
+button:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+canvas { display: block; width: 100%; background: var(--panel); border: 1px solid var(--grid); border-radius: 8px; }
+#scene { aspect-ratio: 4 / 3; }
+#plot { aspect-ratio: 16 / 7; margin-top: .75rem; }
+.controls { display: flex; flex-wrap: wrap; gap: .75rem 1rem; margin: .75rem 0; align-items: end; }
+.controls label { display: flex; flex-direction: column; font-size: .8rem; color: var(--muted); gap: .2rem; }
+.readouts {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .5rem;
+  margin: .75rem 0; padding: 0;
+}
+.readouts div { background: var(--panel); border: 1px solid var(--grid); border-radius: 8px; padding: .4rem .7rem; }
+.readouts dt { font-size: .75rem; color: var(--muted); }
+.readouts dd { margin: 0; font-variant-numeric: tabular-nums; font-weight: 600; }
+.legend span { display: inline-block; margin-right: 1rem; font-size: .85rem; }
+.dot { display: inline-block; width: .7rem; height: .7rem; border-radius: 50%; margin-right: .35rem; }
+.dot.a { background: var(--a); } .dot.b { background: var(--b); }
+.note { color: var(--muted); font-size: .9rem; }
+footer { max-width: 760px; margin: 1rem auto 2rem; padding: 0 1rem; color: var(--muted); font-size: .8rem; }
