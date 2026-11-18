@@ -1,0 +1,68 @@
+{
+  "figures": [
+    {
+      "dt": 0.001,
+      "file": "double_pendulum_theta1_omega1.svg",
+      "id": "double_pendulum_theta1_omega1",
+      "n_steps": 8000,
+      "sha256": "fc195563e09937ec70991af6f1fa8c499085163c2387b6c092eb83e06d35a8fb",
+      "stride": 4,
+      "system": "double_pendulum",
+      "view": [
+        -4.0,
+        9.0,
+        -8.0,
+        11.0
+      ],
+      "y0": [
+        2.0,
+        2.5,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "dt": 0.01,
+      "file": "lorenz_x_z.svg",
+      "id": "lorenz_x_z",
+      "n_steps": 1500,
+      "sha256": "47e2c7655dbe1ce28a5454457632f6e5c6dc1041fc88e28bd3a7c1eb6097a5f2",
+      "stride": 1,
+      "system": "lorenz",
+      "view": [
+        -20.0,
+        25.0,
+        0.0,
+        50.0
+      ],
+      "y0": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "dt": 0.00017065216560157963,
+      "file": "cr3bp_arenstorf_x_y.svg",
+      "id": "cr3bp_arenstorf_x_y",
+      "n_steps": 100000,
+      "sha256": "b60cbdaec7127b730c71c9e791bc0bf7117060252062eb064665969269cc6929",
+      "stride": 50,
+      "system": "cr3bp_arenstorf",
+      "view": [
+        -1.9,
+        1.6,
+        -1.22,
+        1.22
+      ],
+      "y0": [
+        0.994,
+        0.0,
+        0.0,
+        -2.0015851063790824
+      ]
+    }
+  ],
+  "format": 1,
+  "rounding_decimals": 2
+}
