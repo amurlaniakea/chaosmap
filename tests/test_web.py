@@ -25,8 +25,15 @@ def test_cabecera_spdx_y_copyright(nombre):
 def test_sin_recursos_externos():
     for nombre in ARCHIVOS:
         texto = (WEB / nombre).read_text(encoding="utf-8")
-        assert not re.search(r"""(src|href)\s*=\s*["']?(https?:)?//""", texto), nombre
+        assert not re.search(r"""\bsrc\s*=\s*["']?(https?:)?//""", texto), nombre
+        assert not re.search(r"""<link[^>]*href\s*=\s*["']?(https?:)?//""", texto), nombre
         assert "@import" not in texto and "url(http" not in texto, nombre
+
+
+def test_unica_url_absoluta_es_el_codigo_fuente():
+    html = (WEB / "index.html").read_text(encoding="utf-8")
+    urls = set(re.findall(r"https?://[^\"\s<)]+", html))
+    assert urls == {"https://github.com/amurlaniakea/chaosmap"}
 
 
 def test_js_sin_apis_peligrosas_ni_red():
